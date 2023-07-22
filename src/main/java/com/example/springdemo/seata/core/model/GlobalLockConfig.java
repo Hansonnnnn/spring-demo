@@ -6,5 +6,5 @@ import lombok.Data;
 public class GlobalLockConfig {
   private int lockRetryInterval;
   private int lockRetryTimes;
-  private LockStrategyMode lockStrategyMode;
+//  private LockStrategyMode lockStrategyMode;
 }

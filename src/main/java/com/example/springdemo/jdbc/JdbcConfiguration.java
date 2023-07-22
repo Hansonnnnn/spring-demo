@@ -41,8 +41,8 @@ public class JdbcConfiguration {
   }
 
   @Bean
-  JdbcTemplate jdbcTemplate(@Autowired DataSource dataSource) {
-    return new JdbcTemplate(dataSource);
+  MyJdbcTemplate myJdbcTemplate(@Autowired DataSource dataSource) {
+    return new MyJdbcTemplate(dataSource);
   }
 
   @Bean

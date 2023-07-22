@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class DistributedLockDB {
+public class DistributedLockDO {
   private String lockKey;
   private String lockValue;
   private Long expireTime;

@@ -4,20 +4,16 @@ package com.example.springdemo.jdbc;
 import com.example.springdemo.trans.TransactionalUtils;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.jdbc.core.PreparedStatementCreator;
-import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-public class JdbcTemplate {
+public class MyJdbcTemplate {
   private final DataSource dataSource;
 
-  public JdbcTemplate(DataSource dataSource) {
+  public MyJdbcTemplate(DataSource dataSource) {
     this.dataSource = dataSource;
   }
 

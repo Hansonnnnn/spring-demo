@@ -34,7 +34,7 @@ public enum BranchStatus {
       try {
         status = BranchStatus.values()[code];
       } catch (Exception e) {
-        throw new ShouldNeverHappedException("Unknown BranchStatus[" + code + "]");
+        throw new RuntimeException("Unknown BranchStatus[" + code + "]");
       }
        return status;
   }

@@ -2,7 +2,7 @@ package com.example.springdemo.seata.core.auth;
 
 import io.micrometer.common.util.StringUtils;
 
-@LoadLevel(name = "defaultAuthSigner", order = 100)
+//@LoadLevel(name = "defaultAuthSigner", order = 100)
 public class DefaultAuthSigner implements AuthSigner {
 
   @Override

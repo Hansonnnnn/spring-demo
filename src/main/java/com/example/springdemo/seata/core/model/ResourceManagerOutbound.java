@@ -1,5 +1,7 @@
 package com.example.springdemo.seata.core.model;
 
+import com.example.springdemo.seata.core.exception.TransactionException;
+
 public interface ResourceManagerOutbound {
   Long branchRegister(
     BranchType branchType,

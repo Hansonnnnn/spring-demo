@@ -37,7 +37,8 @@ public class RamSignAdapter {
       mac.init(secretKey);
       byte[] text = encryptText.getBytes(StandardCharsets.UTF_8);
       byte[] textFile = mac.doFinal(text);
-      return ConfigTools.byte2Base64(textFile);
+//      return ConfigTools.byte2Base64(textFile);
+      return null;
     } catch (Exception e) {
       throw new RuntimeException("get ram sign with hmacSHA1Encrypt fail", e);
     }

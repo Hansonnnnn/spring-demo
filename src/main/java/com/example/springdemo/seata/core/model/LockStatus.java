@@ -31,7 +31,7 @@ public enum LockStatus {
     try {
       value = LockStatus.values()[code];
     } catch (Exception e) {
-      throw new ShouldNeverHappenException("Unknown LockStatus[" + code + "]");
+      throw new RuntimeException("Unknown LockStatus[" + code + "]");
     }
     return value;
   }
