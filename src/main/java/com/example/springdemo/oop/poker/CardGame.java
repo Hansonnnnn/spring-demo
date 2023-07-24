@@ -1,5 +1,8 @@
 package com.example.springdemo.oop.poker;
 
+/**
+ * https://math.hws.edu/javanotes/c5/s4.html
+ */
 public class CardGame {
   public static void main(String[] args) {
     Deck deck = new Deck();
