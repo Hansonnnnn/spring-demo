@@ -17,36 +17,37 @@ import java.util.Map;
 @Slf4j
 public class TccClientService {
 
-  private final TransactionInfoMapper transactionInfoMapper;
+//  private final TransactionInfoMapper transactionInfoMapper;
   public boolean transactionHandle(String xid) {
     // 根据 xid 查询所有事务分支信息
     Map<String, Object> condition = new HashMap<>(1);
     condition.put("xid", xid);
 
-    List<Map<String, Object>> branchTransactions = transactionInfoMapper.query(condition);
+//    List<Map<String, Object>> branchTransactions = transactionInfoMapper.query(condition);
+//
+//    // 判断是否所有事务的 try 都执行成功了，如果都成功了，则 confirm，否则 cancel
+//    boolean executeConfirm = true;
+//    for (Map<String, Object> item : branchTransactions) {
+//      if (item.get("status").equals(TransactionStatus.TRY_FAILED)
+//      || item.get("status").equals(TransactionStatus.CONFIRM_FAILED)) {
+//        executeConfirm = false;
+//        break;
+//      }
+//    }
 
-    // 判断是否所有事务的 try 都执行成功了，如果都成功了，则 confirm，否则 cancel
-    boolean executeConfirm = true;
-    for (Map<String, Object> item : branchTransactions) {
-      if (item.get("status").equals(TransactionStatus.TRY_FAILED)
-      || item.get("status").equals(TransactionStatus.CONFIRM_FAILED)) {
-        executeConfirm = false;
-        break;
-      }
-    }
-
-    if (executeConfirm) {
-      return executeMethod(branchTransactions, TransactionMethod.CONFIRM);
-    } else {
-      return executeMethod(branchTransactions, TransactionMethod.CANCEL);
-    }
+//    if (executeConfirm) {
+//      return executeMethod(branchTransactions, TransactionMethod.CONFIRM);
+//    } else {
+//      return executeMethod(branchTransactions, TransactionMethod.CANCEL);
+//    }
+    return false;
   }
 
   /**
    * 通过分支事务注册的 类名和方法名，反射调用对应的 confirm 或者 cancel 方法
    * 可以串行，也可以并行
    * @param branchTransactions
-   * @param method
+   * @param
    * @return
    */
   private boolean executeMethod(List<Map<String, Object>> branchTransactions, String methodName) {

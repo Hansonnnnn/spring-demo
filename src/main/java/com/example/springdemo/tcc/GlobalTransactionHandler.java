@@ -22,11 +22,11 @@ import java.util.HashMap;
 @Slf4j
 public class GlobalTransactionHandler {
 
-  private final TransactionInfoMapper transactionInfoMapper;
+//  private final TransactionInfoMapper transactionInfoMapper;
 
-  public GlobalTransactionHandler(TransactionInfoMapper transactionInfoMapper) {
-    this.transactionInfoMapper = transactionInfoMapper;
-  }
+//  public GlobalTransactionHandler(TransactionInfoMapper transactionInfoMapper) {
+//    this.transactionInfoMapper = transactionInfoMapper;
+//  }
 
   @Pointcut("@annotation(xxx.xxx.xx.TccGlobalTransaction)")
   public void globalTransaction() {}
@@ -35,21 +35,21 @@ public class GlobalTransactionHandler {
   public Object globalTransactionHandler(ProceedingJoinPoint point) throws UnknownHostException {
     // 生成全局事务 ID，并放入 ThreadLocal 中
     String transactionId = createTransactionId();
-    RootContext.set(transactionId);
+//    RootContext.set(transactionId);
 
     try {
       // try 阶段的执行
       point.proceed();
     } catch (Throwable throwable) {
       // try 失败后，在数据库中更新所有分支事务的状态
-      updateTransactionStatus(transactionId, TransactionStatus.TRY_FAILED);
+//      updateTransactionStatus(transactionId, TransactionStatus.TRY_FAILED);
       // 发送消息推动进入 cancel 阶段
       sendTryMessage(transactionId);
       return null;
     }
 
     // try 成功，在数据库中更新所有分支事务的状态
-    updateTransactionStatus(transactionId, TransactionStatus.TRY_SUCCESS);
+//    updateTransactionStatus(transactionId, TransactionStatus.TRY_SUCCESS);
 
     // 发送消息推动进入 confirm 阶段，如果 confirm 失败，则再次发送消息进入 cancel 阶段
     if (!sendTryMessage(transactionId)) {
