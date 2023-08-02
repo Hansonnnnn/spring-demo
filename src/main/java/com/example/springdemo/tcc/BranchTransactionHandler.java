@@ -34,6 +34,6 @@ public class BranchTransactionHandler {
     String cancelMethodName = tccActionAnnotation.cancelMethod();
 
     // 写入全局事务管理器的数据中
-    tccClientService.register(RootContext.get(), className, commitMethodName, cancelMethodName);
+//    tccClientService.register(RootContext.get(), className, commitMethodName, cancelMethodName);
   }
 }
