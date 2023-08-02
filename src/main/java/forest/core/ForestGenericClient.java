@@ -5,6 +5,7 @@ import com.dtflys.forest.http.ForestRequest;
 import com.dtflys.forest.http.ForestResponse;
 
 /**
+ * https://github.com/dromara/forest/blob/master/forest-spring-boot3-starter/src/main/java/com/dtflys/forest/springboot/properties/ForestConvertProperties.java
  * 通用客户端接口
  */
 public interface ForestGenericClient {
